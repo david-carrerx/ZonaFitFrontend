@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
   async login() {
     const loading = await this.loadingCtrl.create({ message: "Iniciando sesión"});
     await loading.present();
-
+//
     this.http.post('http://localhost:3000/api/auth/login', {email : this.email, password: this.password})
       .subscribe({
         next: async(res: any) => {
@@ -40,19 +40,13 @@ export class LoginPage implements OnInit {
         },
         error: async (err) => {
           await loading.dismiss();
-          if (err.status === 0) {  // Esto indica que el servidor no está disponible
-            const alert = await this.alertCtrl.create({
-              message: 'No se pudo conectar al servidor. Intenta más tarde.',
-              buttons: ['OK']
-            });
+          if (err.status === 0) {  
+            const alert = await this.alertCtrl.create({ message: 'No se pudo conectar al servidor. Intenta más tarde.', buttons: ['OK']});
             await alert.present();
           } else {
-            const alert = await this.alertCtrl.create({
-              message: 'Error en las credenciales',
-              buttons: ['OK']
-            });
-            await alert.present();
-          }
+              const alert = await this.alertCtrl.create({ message: 'Error en las credenciales', buttons: ['OK'] });
+              await alert.present();
+            }
         }
         
       });
