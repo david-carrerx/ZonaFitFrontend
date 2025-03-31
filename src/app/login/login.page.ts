@@ -38,11 +38,23 @@ export class LoginPage implements OnInit {
           await alert.present();
           this.router.navigate(['/home']);
         },
-        error: async(e) => {
+        error: async (err) => {
           await loading.dismiss();
-          const alert = await this.alertCtrl.create({ message: "Error en las credenciales", buttons: ['OK']});
-          await alert.present();
+          if (err.status === 0) {  // Esto indica que el servidor no está disponible
+            const alert = await this.alertCtrl.create({
+              message: 'No se pudo conectar al servidor. Intenta más tarde.',
+              buttons: ['OK']
+            });
+            await alert.present();
+          } else {
+            const alert = await this.alertCtrl.create({
+              message: 'Error en las credenciales',
+              buttons: ['OK']
+            });
+            await alert.present();
+          }
         }
+        
       });
   }
 }
