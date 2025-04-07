@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
   async login() {
     const loading = await this.loadingCtrl.create({ message: "Iniciando sesión"});
     await loading.present();
-//
+
     this.http.post('http://localhost:3000/api/auth/login', {email : this.email, password: this.password})
       .subscribe({
         next: async(res: any) => {

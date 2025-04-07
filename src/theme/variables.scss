@@ -1,2 +1,32 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+* {
+  font-family: "Baloo 2", sans-serif;
+  font-optical-sizing: auto;
+}
+
+:root {
+   // --ion-color-primary: #7F00B2; 
+    //--ion-color-secondary: #8611B7; 
+    //--ion-color-tertiary: #AB49CC; 
+    --ion-background-gradient: linear-gradient(to bottom, #7F00B2, #8611B7, #AB49CC);
+    
+  }
+  
+  ion-content {
+    --background: var(--ion-background-gradient);
+  }
+
+  ion-button {
+    --border-radius: 10px;
+  }
+
+  ion-item {
+    height: 40px;
+  }
+  ion-input{
+    height: 30px;
+
+  }
+

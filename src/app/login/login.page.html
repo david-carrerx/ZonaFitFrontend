@@ -1,21 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Iniciar Sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-  <form (ngSubmit)="login()">
-    <ion-item>
-      <ion-label position="floating">Correo</ion-label>
-      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-    </ion-item>
-
-    <ion-button expand="full" type="submit">Ingresar</ion-button>
-  </form>
+<ion-content>
+  <div class="content">
+    <div class="login-container">
+      <div class="background-gears">
+        <img src="assets/nut.png" class="gear-top-right">
+        <img src="assets/nut.png" class="gear-left">
+        <img src="assets/nut.png" class="gear-bottom-right">
+      </div>  
+      
+      <div class="container">
+        <div class="header">
+          <img class="header-logo" src="assets/icons/logo.png" alt="Logo de ZonaFIT">
+          <h1 class="header-title">ZONA FIT</h1>
+        </div>
+      
+        <div class="login-form">
+          <h2 class="login-title">Bienvenido</h2>
+          <h3 class="login-subtitle">Inicio de sesión</h3>
+      
+          <form (ngSubmit)="login()">
+            <ion-item class="login-input-container">
+              <ion-input class="login-input" type="email" placeholder="Correo electronico" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
+        
+            <ion-item class="login-input-container">
+              <ion-input class="login-input" type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required></ion-input>
+            </ion-item>
+      
+            <h4 class="login-forgetpassword">¿Olvidaste la contraseña?</h4>
+            
+            <ion-button class="login-button"  type="submit">Iniciar sesión</ion-button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="login-wallpaper">
+      <img src="assets/login-wallpaper.png" alt="Wallpaper de login">
+    </div>
+  </div>
 </ion-content>
