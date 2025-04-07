@@ -6,15 +6,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: true,
+  selector: 'app-clients',
+  templateUrl: './clients.page.html',
+  styleUrls: ['./clients.page.scss'],
   imports: [IonicModule, CommonModule, FormsModule, HttpClientModule]
 
 })
-export class HomePage {
+export class ClientsPage implements OnInit {
 
-  constructor() {}
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 }

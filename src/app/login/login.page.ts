@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
           await loading.dismiss();
           const alert = await this.alertCtrl.create({ message: "Inicio de sesión exitoso", buttons: ['OK']});
           await alert.present();
-          this.router.navigate(['/home']);
+          this.router.navigate(['/tabs']);
         },
         error: async (err) => {
           await loading.dismiss();
