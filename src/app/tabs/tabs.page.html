@@ -1,13 +1,11 @@
 <ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" [routerLink]="['/tabs/home']">
-      <ion-icon name="home-outline"></ion-icon>
-      <ion-label>Home</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="clients" [routerLink]="['/tabs/clients']">
-      <ion-icon name="people-outline"></ion-icon>
-      <ion-label>Clientes</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
+    <ion-tab-bar  class="custom-tab-bar">
+      <ion-tab-button tab="home" [routerLink]="['/tabs/home']">
+        <img class="tabs-icon" src="assets/icons/calendar-icon.png" alt="Icono de calendario">
+      </ion-tab-button>
+  
+      <ion-tab-button tab="clients" [routerLink]="['/tabs/clients']">
+        <img class="tabs-icon" src="assets/icons/user-icon.png" alt="Icono de usuarios">
+      </ion-tab-button>
+    </ion-tab-bar>
 </ion-tabs>
