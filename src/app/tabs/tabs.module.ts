@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     RouterModule,
-    TabsPageRoutingModule // aquí defines las rutas hijas
+    TabsPageRoutingModule 
   ]
 })
 export class TabsPageModule {}

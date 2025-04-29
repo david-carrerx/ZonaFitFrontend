@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router'
+import { ModalController } from '@ionic/angular';
+import { AddClientModalComponent } from '../components/add-client-modal/add-client-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,14 @@ import { Router } from '@angular/router'
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
+
+  async openAddClientModal() {
+    const modal = await this.modalCtrl.create({
+      component: AddClientModalComponent
+    });
+    await modal.present();
+  }
+  
 
 }

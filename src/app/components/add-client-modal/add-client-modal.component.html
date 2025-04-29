@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar Cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="client.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Fecha de inicio</ion-label>
+    <ion-datetime presentation="date" [(ngModel)]="client.start_date"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Fecha de fin</ion-label>
+    <ion-datetime presentation="date" [(ngModel)]="client.end_date"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Paquete</ion-label>
+    <ion-input [(ngModel)]="client.package"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="saveClient()">Guardar</ion-button>
+</ion-content>
+
