@@ -16,10 +16,12 @@
   </ion-header>
 
   <div id="container">
-    <ion-buttons slot="end">
-      <ion-button (click)="openAddClientModal()">
-        <ion-icon name="person-add-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-button fill="clear" class="add-user-button" (click)="openAddClientModal()">
+      <div class="add-user-content">
+        <span class="add-user-text">Agregar persona</span>
+        <img class="add-user-icon" src="assets/icons/add-user-icon.png" alt="Icono de calendario">
+      </div>
+    </ion-button>
+    
   </div>
 </ion-content>

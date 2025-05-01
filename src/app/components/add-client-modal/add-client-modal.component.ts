@@ -39,8 +39,6 @@ export class AddClientModalComponent {
         },
         error: e => {
           console.log(e);
-          console.log('Datos enviados:', this.client);
-
           alert('Error al agregar cliente');
         }
       });
