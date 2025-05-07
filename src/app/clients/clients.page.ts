@@ -13,10 +13,23 @@ import { Router } from '@angular/router'
 
 })
 export class ClientsPage implements OnInit {
+  clients: any[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+
 
   ngOnInit() {
+    this.http.get<any[]>('http://localhost:3000/api/clients/clients')
+      .subscribe({
+        next: (data) => this.clients = data,
+        error: (e) => console.log(e)
+      });
+  }
+
+  isClientActive(endDate: string | Date): boolean {
+    const today = new Date();
+    return new Date(endDate) >= today;
   }
 
 }

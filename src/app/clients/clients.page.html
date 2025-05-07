@@ -7,9 +7,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">clients</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container">
+    <div class="clients-container">
+      <div class="clients-filter">
+        <input type="text" class="clients-search" placeholder="Buscar cliente">
+        <img src="assets/icons/search-icon.png" alt="Icono de buscar" class="search-icon">
+      </div>
+
+      <div *ngFor="let client of clients" class="client-content">
+        <h4 class="client-title">{{ client.name }}</h4>
+          <p class="client-text">
+            <span><b>Fin del paquete:</b> {{ client.end_date | date }}</span> 
+            <span [ngClass]="isClientActive(client.end_date) ? 'active' : 'inactive'" class="client-status">
+              {{ isClientActive(client.end_date) ? 'Activo' : 'Inactivo' }}
+            </span>
+          </p>
+      </div>
+    </div>
+  </div>
 </ion-content>

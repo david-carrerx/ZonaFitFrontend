@@ -31,12 +31,14 @@ input{
     width: 100%;
     height: 35px;
 }
+
 .button-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
 }
+
 .confirm-button{
     --background: white;
     color: #7F00B2;

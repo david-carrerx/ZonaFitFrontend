@@ -1,4 +1,107 @@
 .title-center{
     text-align: center;
     font-weight: bolder;
-  }
+}
+
+.clients-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clients-filter {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.clients-search {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  height: 45px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+  padding-right: 40px; 
+  box-sizing: border-box;
+}
+
+.clients-search::placeholder {
+  color: white;
+}
+
+.clients-search:focus {
+  outline: none;
+  border: none;
+  box-shadow: none; 
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  pointer-events: none; 
+}
+
+.client-content{
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 90%;
+  height: 95px;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 0;
+  margin-top: 10px;
+}
+
+.client-title{
+  margin-bottom: 0px;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.client-text{
+  margin-top: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+
+}
+
+.client-text span {
+  color: white;
+}
+
+.client-status{
+  color: white;
+  font-size: 14px;
+
+}
+
+.active {
+  background-color: #04B904; /* verde claro */
+  color: white;
+  width: 70px;
+  border-radius: 10px;
+  padding: 2px;
+  text-align: center;
+  font-size: 14px;
+
+}
+
+.inactive {
+  background-color: #B90404; /* rojo claro */
+  color: white;
+  border-radius: 10px;
+  width: 70px;
+  text-align: center;
+  padding: 2px;
+  font-size: 14px;
+
+}
