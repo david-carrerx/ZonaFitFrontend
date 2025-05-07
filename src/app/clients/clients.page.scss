@@ -48,6 +48,28 @@
   pointer-events: none; 
 }
 
+.buttons-filter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.button-filter{
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 10px;
+  width: 55px;
+  padding: 8px;
+}
+
+.button-filter:focus{
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+
 .client-content{
   background-color: rgba(255, 255, 255, 0.2);
   width: 90%;
@@ -89,7 +111,8 @@
   color: white;
   width: 70px;
   border-radius: 10px;
-  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
   text-align: center;
   font-size: 14px;
 
@@ -101,7 +124,20 @@
   border-radius: 10px;
   width: 70px;
   text-align: center;
-  padding: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
   font-size: 14px;
 
+}
+
+.soon-status {
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  width: 70px;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: 5px;
+  font-size: 14px;
 }
