@@ -30,7 +30,7 @@ export class AddClientModalComponent {
     this.modalCtrl.dismiss();
   }
 
-  saveClient() {
+  saveClient() {    
     this.http.post('http://localhost:3000/api/clients/add-client', this.client)
       .subscribe({
         next: () => {

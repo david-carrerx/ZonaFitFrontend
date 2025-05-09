@@ -17,6 +17,8 @@ import { AddClientModalComponent } from '../components/add-client-modal/add-clie
 })
 export class HomePage {
 
+  currentDate: string = new Date().toISOString();
+
   constructor(private modalCtrl: ModalController) {}
 
   async openAddClientModal() {
@@ -24,6 +26,11 @@ export class HomePage {
       component: AddClientModalComponent
     });
     await modal.present();
+  }
+
+  onDateChange(event: any) {
+    const selectedDate = event.detail.value;
+    console.log('Fecha seleccionada:', selectedDate);
   }
   
 

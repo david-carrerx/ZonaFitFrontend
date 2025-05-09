@@ -15,13 +15,34 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
+  <div class="content" id="container">
+    <div class="sales">
+      <div class="sales-titles">
+        <h3>Ingresos - Septiembre 2024</h3>
+        <h4>$2220</h4>
+      </div>
+      <img src="assets/icons/sales-icon.png" alt="Icono de ventas" class="sales-icon">
+    </div>
+
+    <div class="calendar">
+      <ion-datetime
+        mode="md"
+        presentation="date"
+        [value]="currentDate"
+        (ionChange)="onDateChange($event)"
+        class="calendar-datetime">
+      </ion-datetime>
+    </div>
+
     <ion-button fill="clear" class="add-user-button" (click)="openAddClientModal()">
       <div class="add-user-content">
         <span class="add-user-text">Agregar persona</span>
         <img class="add-user-icon" src="assets/icons/add-user-icon.png" alt="Icono de calendario">
       </div>
     </ion-button>
-    
+
+    <div class="reminder">
+      <textarea name="reminder" id="reminder" class="reminder-textarea" placeholder="Recordatorios"></textarea>
+    </div>
   </div>
 </ion-content>

@@ -37,4 +37,19 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 /* src/global.scss */
 
+ion-datetime::part(calendar-day) {
+    color: white !important;
+    font-weight: bold !important;
+  }
   
+  ion-datetime::part(calendar-day-active) {
+    background: yellow !important;
+    color: black !important;
+    font-weight: bold !important;
+    border-radius: 50% !important;
+  }
+  
+  ion-datetime::part(calendar-month-year) {
+    color: white !important;
+    font-weight: bold !important;
+  }
