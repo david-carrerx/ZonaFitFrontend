@@ -17,6 +17,8 @@ export class ClientsPage implements OnInit {
   filteredClients: any[] = [];
   searchTerm: string = '';
   selectedFilter: string = 'todos';
+  showModal = false;
+  selectedClient: any = null;
 
 
   constructor(private http: HttpClient) { }
@@ -72,6 +74,21 @@ export class ClientsPage implements OnInit {
   isClientActive(endDate: string | Date): boolean {
     const today = new Date();
     return new Date(endDate) >= today;
+  }
+
+  openClientModal(client: any) {
+    this.selectedClient = client;
+    this.showModal = true;
+  }
+  
+  closeModal() {
+    this.showModal = false;
+    this.selectedClient = null;
+  }
+  
+  updateClientPlan() {
+    // Aquí iría la lógica futura con Node.js
+    console.log('Actualizar plan para:', this.selectedClient.name);
   }
 
 }

@@ -6,6 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
+<div *ngIf="showModal" class="modal-backdrop"></div>
+
 <ion-content [fullscreen]="true">
   <div class="container">
     <div class="clients-container">
@@ -23,7 +25,7 @@
 
 
 
-      <div *ngFor="let client of filteredClients" class="client-content">
+      <div *ngFor="let client of filteredClients" class="client-content" (click)="openClientModal(client)">
         <h4 class="client-title">{{ client.name }}</h4>
           <div class="client-text">
             <span><b>Fin del paquete:</b> {{ client.end_date | date }}</span>
@@ -40,4 +42,40 @@
       </div>
     </div>
   </div>
+
+  <ion-modal [isOpen]="showModal" (didDismiss)="closeModal()" [class.custom-modal]="true"
+  [class.custom-modal-large]="selectedClient && !isClientActive(selectedClient.end_date)">  
+    <ng-template>
+      <ion-content class="ion-padding">
+        <div class="modal-content-centered">
+          <div *ngIf="selectedClient">
+            <ng-container *ngIf="isClientActive(selectedClient.end_date); else expiredContent">
+              <h4 class="modal-title">El plan del usuario sigue vigente</h4>
+            </ng-container>
+            <ng-template #expiredContent>
+              <h2>{{ selectedClient.name }}</h2>
+              <span>Plan inactivo</span>
+              <div class="modal-data">
+                <span>Fecha de inicio:</span>
+                <input type="text" class="modal-input" [value]="selectedClient.start_date | date:'yyyy-MM-dd'" readonly>
+              </div>
+              <div class="modal-data">
+                <span>Fecha de fin:</span>
+                <input type="text" class="modal-input" [value]="selectedClient.end_date | date:'yyyy-MM-dd'" readonly>
+              </div>
+              <ion-button fill="clear" size="small" (click)="updateClientPlan()" class="update-button">
+                <span>Actualizar plan</span>
+              </ion-button>
+            </ng-template>
+          </div>
+          <ion-button fill="clear" size="small" class="close-button" (click)="closeModal()">
+            <span>Cerrar</span>
+          </ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  
+  
+  
 </ion-content>

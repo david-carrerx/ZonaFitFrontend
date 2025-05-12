@@ -141,3 +141,79 @@
   margin-left: 5px;
   font-size: 14px;
 }
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7); /* fondo negro con transparencia */
+  z-index: 999; /* menor que el modal pero mayor que el resto */
+}
+
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 25vh;
+  width: 90%;
+  border-radius: 10px;
+  z-index: 1000;
+
+}
+
+.custom-modal-large {
+  height: 50vh; /* o el tamaño que necesites */
+}
+
+.modal-title{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-data{
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.modal-input{
+  width: 100%;
+  background-color: white;
+  color: #7F00B2;
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.update-button{
+  background-color: #7F00B2;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  height: 40px;
+  text-transform: none;
+}
+
+.close-button{
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  color: #7F00B2;
+  height: 40px;
+  text-transform: none;
+
+}
+
+.modal-content-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%; /* llenar todo el ion-content */
+  width: 100%;
+  text-align: center;
+}
