@@ -66,6 +66,16 @@
                 <span>Fecha de fin:</span>
                 <input type="text" class="modal-input" [value]="selectedClient.end_date | date:'yyyy-MM-dd'" readonly>
               </div>
+              <div class="modal-data">
+                <span>Selecciona el plan</span>
+                <select class="modal-input" [(ngModel)]="selectedPlan">
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="mensual">Mensual</option>
+                  <option value="semanal">Semanal</option>
+                  <option value="visita">Visita</option>
+                </select>
+              </div>
+              
               <ion-button fill="clear" size="small" (click)="updateClientPlan()" class="update-button">
                 <span>Actualizar plan</span>
               </ion-button>
@@ -78,7 +88,4 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-  
-  
-  
 </ion-content>

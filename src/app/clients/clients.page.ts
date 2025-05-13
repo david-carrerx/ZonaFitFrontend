@@ -19,6 +19,8 @@ export class ClientsPage implements OnInit {
   selectedFilter: string = 'todos';
   showModal = false;
   selectedClient: any = null;
+  selectedPlan: string = '';
+
 
 
   constructor(private http: HttpClient) { }
@@ -87,8 +89,59 @@ export class ClientsPage implements OnInit {
   }
   
   updateClientPlan() {
-    // Aquí iría la lógica futura con Node.js
-    console.log('Actualizar plan para:', this.selectedClient.name);
+    if (!this.selectedClient || !this.selectedPlan) return;
+  
+    const today = new Date();
+    let endDate = new Date(today);
+  
+    switch (this.selectedPlan) {
+      case 'mensual':
+        endDate.setMonth(endDate.getMonth() + 1);
+        break;
+      case 'semanal':
+        endDate.setDate(endDate.getDate() + 7);
+        break;
+      case 'visita':
+        endDate.setDate(endDate.getDate() + 1);
+        break;
+    }
+  
+    const body = {
+      start_date: today.toISOString(),
+      end_date: endDate.toISOString(),
+      package: this.selectedPlan
+    };
+  
+    this.http.put(`http://localhost:3000/api/clients/update-client/${this.selectedClient._id}`, body)
+      .subscribe({
+        next: (res: any) => {
+          console.log('Cliente actualizado:', res);
+  
+          // Actualiza el cliente en la lista de clientes localmente
+          const updatedClient = res.client;
+          const index = this.clients.findIndex(c => c._id === updatedClient._id);
+  
+          if (index !== -1) {
+            // Actualiza el cliente en la lista local
+            this.clients[index] = updatedClient;
+  
+            // También actualiza el cliente en la lista filtrada
+            const filterIndex = this.filteredClients.findIndex(c => c._id === updatedClient._id);
+            if (filterIndex !== -1) {
+              this.filteredClients[filterIndex] = updatedClient;
+            }
+          }
+  
+          // Vuelve a filtrar la lista si es necesario
+          this.filterClients();
+  
+          this.closeModal();
+        },
+        error: (err) => {
+          console.error('Error actualizando cliente:', err);
+        }
+      });
   }
+  
 
 }
