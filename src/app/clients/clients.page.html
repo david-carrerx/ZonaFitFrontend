@@ -48,13 +48,16 @@
     <ng-template>
       <ion-content class="ion-padding">
         <div class="modal-content-centered">
-          <div *ngIf="selectedClient">
+          <div *ngIf="selectedClient" class="modal-content">
             <ng-container *ngIf="isClientActive(selectedClient.end_date); else expiredContent">
               <h4 class="modal-title">El plan del usuario sigue vigente</h4>
             </ng-container>
             <ng-template #expiredContent>
-              <h2>{{ selectedClient.name }}</h2>
-              <span>Plan inactivo</span>
+              <div class="modal-title-content">
+                <h2 class="modal-title-name">{{ selectedClient.name }}</h2>
+                <span class="modal-subtitle">Plan inactivo</span>
+              </div>
+              
               <div class="modal-data">
                 <span>Fecha de inicio:</span>
                 <input type="text" class="modal-input" [value]="selectedClient.start_date | date:'yyyy-MM-dd'" readonly>

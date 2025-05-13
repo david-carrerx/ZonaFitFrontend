@@ -159,13 +159,36 @@
   transform: translate(-50%, -50%);
   height: 25vh;
   width: 90%;
+  max-width: 500px;
   border-radius: 10px;
   z-index: 1000;
 
 }
 
 .custom-modal-large {
-  height: 50vh; /* o el tamaño que necesites */
+  height: 60vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.modal-content-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  width: 100%;
+  text-align: center;
+}
+
+.modal-content{
+  width: 100%;
 }
 
 .modal-title{
@@ -173,9 +196,18 @@
   margin-bottom: 20px;
 }
 
+.modal-title-content{
+  margin-bottom: 10px;
+}
+
+.modal-title-name{
+  margin-bottom: 0;
+}
+
 .modal-data{
   text-align: left;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .modal-input{
@@ -205,15 +237,4 @@
   height: 40px;
   text-transform: none;
 
-}
-
-.modal-content-centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 100%; /* llenar todo el ion-content */
-  width: 100%;
-  text-align: center;
 }
