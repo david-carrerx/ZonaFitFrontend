@@ -117,24 +117,19 @@ export class ClientsPage implements OnInit {
         next: (res: any) => {
           console.log('Cliente actualizado:', res);
   
-          // Actualiza el cliente en la lista de clientes localmente
           const updatedClient = res.client;
           const index = this.clients.findIndex(c => c._id === updatedClient._id);
   
           if (index !== -1) {
-            // Actualiza el cliente en la lista local
             this.clients[index] = updatedClient;
   
-            // También actualiza el cliente en la lista filtrada
             const filterIndex = this.filteredClients.findIndex(c => c._id === updatedClient._id);
             if (filterIndex !== -1) {
               this.filteredClients[filterIndex] = updatedClient;
             }
           }
   
-          // Vuelve a filtrar la lista si es necesario
-          this.filterClients();
-  
+          this.filterClients();  
           this.closeModal();
         },
         error: (err) => {
@@ -142,6 +137,4 @@ export class ClientsPage implements OnInit {
         }
       });
   }
-  
-
 }

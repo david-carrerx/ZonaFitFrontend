@@ -6,6 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
+<div *ngIf="showAddClientModal" class="modal-backdrop"></div>
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -15,7 +17,9 @@
     </ion-toolbar>
   </ion-header>
 
+
   <div class="content" id="container">
+
     <div class="sales">
       <div class="sales-titles">
         <h3>Ingresos - Septiembre 2024</h3>
@@ -45,4 +49,50 @@
       <textarea name="reminder" id="reminder" class="reminder-textarea" placeholder="Recordatorios"></textarea>
     </div>
   </div>
+
+  <div *ngIf="showAddClientModal" class="modal-backdrop"></div>
+
+<ion-modal [isOpen]="showAddClientModal" (didDismiss)="closeAddClientModal()" [class.custom-modal]="true">
+  <ng-template>
+    <ion-content class="ion-padding">
+      <div class="modal-content-centered">
+        <h2 class="modal-title">Agregar nuevo cliente</h2>
+
+        <div class="modal-data">
+          <span>Nombre:</span>
+          <input type="text" class="modal-input" [(ngModel)]="newClient.name" placeholder="Nombre del cliente">
+        </div>
+
+        <div class="modal-data">
+          <span>Fecha de inicio:</span>
+          <input type="date" class="modal-input" [(ngModel)]="newClient.start_date">
+        </div>
+
+        <div class="modal-data">
+          <span>Fecha de fin:</span>
+          <input type="date" class="modal-input"  [(ngModel)]="newClient.end_date">
+        </div>
+
+        <div class="modal-data">
+          <span>Tipo de plan:</span>
+          <select class="modal-input" [(ngModel)]="newClient.package">
+            <option value="" disabled>Selecciona una opción</option>
+            <option value="mensual">Mensual</option>
+            <option value="semanal">Semanal</option>
+            <option value="visita">Visita</option>
+          </select>
+        </div>
+
+        <ion-button fill="clear" size="small" (click)="saveNewClient()" class="update-button">
+          <span>Guardar cliente</span>
+        </ion-button>
+
+        <ion-button fill="clear" size="small" class="close-button" (click)="closeAddClientModal()">
+          <span>Cancelar</span>
+        </ion-button>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
 </ion-content>
